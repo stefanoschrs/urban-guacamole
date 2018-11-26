@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>i18n Manager</title>
+
+    <link href="https://fonts.googleapis.com/css?family=Ubuntu:400,500&amp;subset=greek" rel="stylesheet">
+    <link rel="stylesheet" href="stylesheets/style.css">
+</head>
+<body>
+<h1 class="title">i18n Manager</h1>
+
+<div id="app">
+    <div v-if="language && language.index && language.index.content">
+        <div class="content-row" v-for="(value, key) in language.index.content">
+            <strong class="key">{{ key }}</strong>
+
+            <span class="inputs">
+              <input type="text" v-model="tValue.content" v-for="(tValue, tKey) in value.translations">
+          </span>
+
+            <span class="actions" v-if="hasChanged(key)">
+
+
+            <img class="icon" src="https://icongr.am/fontawesome/check.svg?size=20&color=00ff00" alt="Done"
+                 v-on:click="update(key)">
+            <img class="icon" src="https://icongr.am/fontawesome/times.svg?size=20&color=ff0000" alt="Clear"
+                 v-on:click="clear(key)">
+          </span>
+        </div>
+    </div>
+
+    <div class="save-all" v-if="dirty">
+        <img class="icon" src="https://material.io/tools/icons/static/icons/baseline-save-24px.svg" alt="Save All"
+             v-on:click="saveAll()">
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="javascripts/main.js"></script>
+</body>
+</html>

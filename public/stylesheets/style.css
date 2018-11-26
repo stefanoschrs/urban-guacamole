@@ -1,0 +1,32 @@
+body {
+  font-family: 'Ubuntu', sans-serif; }
+
+.title {
+  margin-bottom: 4rem;
+  text-align: center;
+  text-decoration: underline; }
+
+#app .content-row {
+  padding: 10px; }
+  #app .content-row:nth-child(even) {
+    background-color: #efefef; }
+  #app .content-row .key {
+    width: 300px;
+    display: inline-block; }
+  #app .content-row input {
+    margin-right: 5px; }
+  #app .content-row .icon {
+    vertical-align: middle;
+    width: 20px;
+    cursor: pointer; }
+
+#app .save-all {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  padding: 15px;
+  background-color: #aaa;
+  border-radius: 50%;
+  cursor: pointer; }
+  #app .save-all img {
+    width: 40px; }
