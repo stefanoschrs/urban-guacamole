@@ -4,9 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
     <title>i18n Manager</title>
 
-    <link href="https://fonts.googleapis.com/css?family=Ubuntu:400,500&amp;subset=greek" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Material+Icons|Ubuntu:400,500&amp;subset=greek" rel="stylesheet">
+    <link rel="stylesheet" href="stylesheets/mdc.fab.min.css">
     <link rel="stylesheet" href="stylesheets/style.css">
 </head>
 <body>
@@ -32,13 +34,20 @@
         </div>
     </div>
 
-    <div class="save-all" v-if="dirty">
-        <img class="icon" src="https://material.io/tools/icons/static/icons/baseline-save-24px.svg" alt="Save All"
-             v-on:click="saveAll()">
-    </div>
+    <button class="mdc-fab mdc-fab--extended" v-on:click="exportPDF()">
+        <span class="material-icons mdc-fab__icon">picture_as_pdf</span>
+        <span class="mdc-fab__label">Export</span>
+    </button>
+
+    <button class="mdc-fab mdc-fab--extended" v-on:click="saveFile()" v-if="dirty">
+        <span class="material-icons mdc-fab__icon">save</span>
+        <span class="mdc-fab__label">Save File</span>
+    </button>
 </div>
 
-<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script async src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.39/pdfmake.min.js" integrity="sha256-QODwBEsM0+r31YdQOjLDaRwGxr3KF7ltjJ0N4K+LayQ=" crossorigin="anonymous"></script>
+<script async src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.39/vfs_fonts.js" integrity="sha256-XLgfpwdUBwR1k46YWTWaJoEiybYsrBVOu44SDoEmYsw=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.17/vue.min.js" integrity="sha256-FtWfRI+thWlNz2sB3SJbwKx5PgMyKIVgwHCTwa3biXc=" crossorigin="anonymous"></script>
 <script src="javascripts/main.js"></script>
 </body>
 </html>

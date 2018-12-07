@@ -46,7 +46,7 @@
             a.translations[lan].content = b.translations[lan].content
           })
       },
-      saveAll: () => {
+      saveFile () {
         fetch(apiBase + '/data', {
           method: 'POST',
           headers: {
@@ -63,6 +63,29 @@
           .catch((error) => console.log(error))
 
         vueData.dirty = false
+      },
+      exportPDF () {
+        const docDefinition = {
+          content: []
+        }
+
+        let text
+
+        Array.prototype.forEach.call(document.querySelectorAll('.content-row'), (el) => {
+          text = el.querySelector('.key').innerText
+          docDefinition.content.push({ text, fontSize: 15 })
+          console.log(text)
+
+          Array.prototype.forEach.call(el.querySelectorAll('input'), (input) => {
+            text = input.value
+            docDefinition.content.push(text)
+            console.log(text)
+          })
+
+          docDefinition.content.push(' ')
+        })
+
+        pdfMake.createPdf(docDefinition).download('wedkit-i18n.pdf')
       }
     }
   })

@@ -14,16 +14,20 @@ body {
     padding: 10px;
 
     &:nth-child(even) {
-      background-color: #efefef;
+      background-color: rgba(#018786, .1);
     }
 
     .key {
-      width: 300px;
       display: inline-block;
     }
 
     input {
       margin-right: 5px;
+    }
+
+    .key,
+    input {
+      width: 300px;
     }
 
     .icon {
@@ -34,20 +38,14 @@ body {
     }
   }
 
-  .save-all {
+  button.mdc-fab {
     position: fixed;
     bottom: 20px;
     right: 20px;
+    min-width: 135px;
 
-    padding: 15px;
-
-    background-color: #aaa;
-    border-radius: 50%;
-
-    cursor: pointer;
-
-    img {
-      width: 40px;
+    &:nth-of-type(2) {
+      bottom: 88px;
     }
   }
 }
