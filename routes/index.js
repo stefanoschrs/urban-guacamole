@@ -22,6 +22,7 @@ function checkIdMiddleware (req, res, next) {
 }
 
 router.get('/:id', checkIdMiddleware, (req, res) => {
+  // TODO: Also return a name for saving the pdf to a more human readable format
   res.render('index', {
     id: res.locals.file.id
   })
