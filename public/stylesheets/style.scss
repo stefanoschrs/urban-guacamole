@@ -17,24 +17,37 @@ body {
       background-color: rgba(#018786, .1);
     }
 
-    .key {
-      display: inline-block;
+    .header-row {
+      display: flex;
+      align-items: center;
+
+      .key {
+        margin-right: 15px;
+      }
+
+      .icon {
+        width: 20px;
+
+        vertical-align: middle;
+
+        cursor: pointer;
+      }
     }
 
-    input {
-      margin-right: 5px;
-    }
+    .input-row {
+      display: flex;
+      align-items: center;
 
-    .key,
-    input {
-      width: 300px;
-    }
+      margin-top: 15px;
 
-    .icon {
-      vertical-align: middle;
-      width: 20px;
+      .lan {
+        width: 20px;
+        font-size: 12px;
+      }
 
-      cursor: pointer;
+      .input {
+        width: 100%;
+      }
     }
   }
 

@@ -47,7 +47,7 @@
           })
       },
       saveFile () {
-        fetch(apiBase + '/data', {
+        fetch(`${apiBase}/data/${window.I18N_ID}`, {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json'
@@ -85,7 +85,7 @@
           docDefinition.content.push(' ')
         })
 
-        pdfMake.createPdf(docDefinition).download('wedkit-i18n.pdf')
+        pdfMake.createPdf(docDefinition).download(`${window.I18N_ID}-i18n.pdf`)
       }
     }
   })
@@ -99,7 +99,7 @@
     ]
   }
 
-  fetch(apiBase + '/data')
+  fetch(`${apiBase}/data/${window.I18N_ID}`)
     .then((res) => res.json())
     .then((res) => {
       originalLanguage = JSON.parse(JSON.stringify(res.languageData))

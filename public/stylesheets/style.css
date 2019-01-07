@@ -10,17 +10,24 @@ body {
   padding: 10px; }
   #app .content-row:nth-child(even) {
     background-color: rgba(1, 135, 134, 0.1); }
-  #app .content-row .key {
-    display: inline-block; }
-  #app .content-row input {
-    margin-right: 5px; }
-  #app .content-row .key,
-  #app .content-row input {
-    width: 300px; }
-  #app .content-row .icon {
-    vertical-align: middle;
-    width: 20px;
-    cursor: pointer; }
+  #app .content-row .header-row {
+    display: flex;
+    align-items: center; }
+    #app .content-row .header-row .key {
+      margin-right: 15px; }
+    #app .content-row .header-row .icon {
+      width: 20px;
+      vertical-align: middle;
+      cursor: pointer; }
+  #app .content-row .input-row {
+    display: flex;
+    align-items: center;
+    margin-top: 15px; }
+    #app .content-row .input-row .lan {
+      width: 20px;
+      font-size: 12px; }
+    #app .content-row .input-row .input {
+      width: 100%; }
 
 #app button.mdc-fab {
   position: fixed;

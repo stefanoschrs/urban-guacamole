@@ -8,8 +8,8 @@
     <title>i18n Manager</title>
 
     <link href="https://fonts.googleapis.com/css?family=Material+Icons|Ubuntu:400,500&amp;subset=greek" rel="stylesheet">
-    <link rel="stylesheet" href="stylesheets/mdc.fab.min.css">
-    <link rel="stylesheet" href="stylesheets/style.css">
+    <link rel="stylesheet" href="../public/stylesheets/mdc.fab.min.css">
+    <link rel="stylesheet" href="../public/stylesheets/style.css">
 </head>
 <body>
 <h1 class="title">i18n Manager</h1>
@@ -17,20 +17,18 @@
 <div id="app">
     <div v-if="language && language.index && language.index.content">
         <div class="content-row" v-for="(value, key) in language.index.content">
-            <strong class="key">{{ key }}</strong>
+            <div class="header-row">
+                <strong class="key">{{ key }}</strong>
 
-            <span class="inputs">
-              <input type="text" v-model="tValue.content" v-for="(tValue, tKey) in value.translations">
+                <span class="actions" v-if="hasChanged(key)">
+            <img class="icon" src="https://icongr.am/fontawesome/check.svg?size=20&color=00ff00" alt="Done" v-on:click="update(key)">
+            <img class="icon" src="https://icongr.am/fontawesome/times.svg?size=20&color=ff0000" alt="Clear" v-on:click="clear(key)">
           </span>
+            </div>
 
-            <span class="actions" v-if="hasChanged(key)">
-
-
-            <img class="icon" src="https://icongr.am/fontawesome/check.svg?size=20&color=00ff00" alt="Done"
-                 v-on:click="update(key)">
-            <img class="icon" src="https://icongr.am/fontawesome/times.svg?size=20&color=ff0000" alt="Clear"
-                 v-on:click="clear(key)">
-          </span>
+            <div class="input-row" v-for="(tValue, tKey) in value.translations">
+                <strong class="lan">{{ tKey }}</strong> <input class="input" type="text" v-model="tValue.content">
+            </div>
         </div>
     </div>
 
@@ -48,6 +46,7 @@
 <script async src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.39/pdfmake.min.js" integrity="sha256-QODwBEsM0+r31YdQOjLDaRwGxr3KF7ltjJ0N4K+LayQ=" crossorigin="anonymous"></script>
 <script async src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.39/vfs_fonts.js" integrity="sha256-XLgfpwdUBwR1k46YWTWaJoEiybYsrBVOu44SDoEmYsw=" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.17/vue.min.js" integrity="sha256-FtWfRI+thWlNz2sB3SJbwKx5PgMyKIVgwHCTwa3biXc=" crossorigin="anonymous"></script>
-<script src="javascripts/main.js"></script>
+<script>window.I18N_ID='<%- id %>'</script>
+<script src="../public/javascripts/main.js"></script>
 </body>
 </html>
